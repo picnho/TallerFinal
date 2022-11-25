@@ -14,6 +14,7 @@ import vista.Conexion;
 public class TallerFinal {
 
     public static void main(String[] args) {
+        System.out.println("a");
      Conexion objetoconexion = new Conexion();
      objetoconexion.estableceConexion();
     }

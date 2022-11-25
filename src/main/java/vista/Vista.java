@@ -323,8 +323,18 @@ public class Vista extends javax.swing.JFrame {
         });
 
         botonarticulosmodificar.setText("Modificar");
+        botonarticulosmodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonarticulosmodificarActionPerformed(evt);
+            }
+        });
 
         botoneliminararticulos.setText("Eliminar");
+        botoneliminararticulos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoneliminararticulosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -706,8 +716,34 @@ public class Vista extends javax.swing.JFrame {
 
     private void botonarticulosInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonarticulosInsertarActionPerformed
         // TODO add your handling code here:
-        
-        
+        Conexion cc= new Conexion();
+        Connection cn=cc.estableceConexion();
+        String Acodigo,Adescripcion,Apreciounitario,Aunidaddemedida,Apreveedor,Aciudad;
+        String sql="";
+        Acodigo=txtAcodigo.getText();
+        Adescripcion=txtAdescripcion.getText();
+        Apreciounitario=txtApreciounitario.getText();
+        Aunidaddemedida=txtAunidaddemedida.getText();
+        Apreveedor=txtApreveedor.getText();
+        Aciudad=txtAciudad.getText();
+        sql="insert into tblclientes (codigo,nombre,apellido) values (?,?,?)";
+        try{
+            PreparedStatement pst=cn.prepareStatement(sql);
+            pst.setString(1,Acodigo);
+            pst.setString(2,Adescripcion);
+            pst.setString(3,Apreciounitario);
+            pst.setString(4,Aunidaddemedida);
+            pst.setString(5,Apreveedor);
+            pst.setString(6,Aciudad);
+            int registro=pst.executeUpdate();
+            if (registro>0)
+            {
+               JOptionPane.showMessageDialog(null,"Registro almacenado correctamente");
+              // limpiar();
+            }
+        }catch(Exception e){
+               JOptionPane.showMessageDialog(null,"Registro no almacenado");
+               }
         
     }//GEN-LAST:event_botonarticulosInsertarActionPerformed
 
@@ -786,6 +822,58 @@ public class Vista extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null,"El registro no se elimino");
                         }
     }//GEN-LAST:event_botondetalleEliminarActionPerformed
+
+    private void botonarticulosmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonarticulosmodificarActionPerformed
+        // TODO add your handling code here:
+        Conexion cc= new Conexion();
+        Connection cn=cc.estableceConexion();
+        String Acodigo,Adescripcion,Apreciounitario,Aunidaddemedida,Apreveedor,Aciudad;
+        String sql;
+        Acodigo=txtAcodigo.getText();
+        Adescripcion=txtAdescripcion.getText();
+        Apreciounitario=txtApreciounitario.getText();
+        Aunidaddemedida=txtAunidaddemedida.getText();
+        Apreveedor=txtApreveedor.getText();
+        Aciudad=txtAciudad.getText();
+        sql="update tblclientes set nombre=?, apellido=? where codigo="+Acodigo;
+        try{
+            PreparedStatement pst = cn.prepareStatement(sql);
+            pst.setString(1,Acodigo);
+            pst.setString(2,Adescripcion);
+            pst.setString(3,Apreciounitario);
+            pst.setString(4,Aunidaddemedida);
+            pst.setString(5,Apreveedor);
+            pst.setString(6,Aciudad);
+            int registro=pst.executeUpdate();
+            if (registro>0){
+                JOptionPane.showMessageDialog(null, "El registro se actualizo correctamente");
+             }
+        }catch (Exception e)
+        {
+             JOptionPane.showMessageDialog(null, "El registro  no se actualizo");
+        } 
+    }//GEN-LAST:event_botonarticulosmodificarActionPerformed
+
+    private void botoneliminararticulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoneliminararticulosActionPerformed
+        // TODO add your handling code here:
+        Conexion cc= new Conexion();
+        Connection cn=cc.estableceConexion();
+        String Acodigo;
+        String sql;
+        Acodigo=txtAcodigo.getText();
+        sql="delete from tblclientes where codigo="+Acodigo;
+        JOptionPane.showMessageDialog(null,sql);
+        try{
+           PreparedStatement pst = cn.prepareStatement(sql);
+           int registro=pst.executeUpdate();
+           if (registro>0){
+               JOptionPane.showMessageDialog(null,"El registro se elimino correctamente");
+               }
+            }catch (Exception e)
+                        {
+                        JOptionPane.showMessageDialog(null,"El registro no se elimino");
+                        }
+    }//GEN-LAST:event_botoneliminararticulosActionPerformed
 
     /**
      * @param args the command line arguments
