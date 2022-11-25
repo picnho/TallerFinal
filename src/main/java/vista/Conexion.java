@@ -16,7 +16,7 @@ public class Conexion {
     Connection conectar= null;
     String usuario="root";
     String contrasena="123456";
-    String bd="Tablas";
+    String bd="Clientes";
     String ip="Localhost";
     String puerto="3306";
     

@@ -557,7 +557,7 @@ public class Vista extends javax.swing.JFrame {
         direc=txtDireccion.getText();
         Correo=txtCorreo.getText();
         ciudad=txtCiudad.getText();
-        sql="update tblclientes set nombre=?, apellido=? where codigo="+cod;
+        sql="update Clientes set nombre=?, apellido=?,direccionResidencia=?,Correoelectronico=?,ciudad=? where codigo="+cod;      
         try{
             PreparedStatement pst = cn.prepareStatement(sql);
             pst.setString(1,nom);
@@ -600,15 +600,15 @@ public class Vista extends javax.swing.JFrame {
         correo=txtCorreo.getText();
         ciudad=txtCiudad.getText();
         
-        sql="insert into tblclientes (codigo,nombre,apellido) values (?,?,?)";
+        sql="insert into Clientes (identificacion,nombre,apellido,direccionResidencia,Correoelectronico,ciudad) values (?,?,?,?,?,?)";
         try{
             PreparedStatement pst=cn.prepareStatement(sql);
             pst.setString(1,cod);
             pst.setString(2,nom);
-            pst.setString(3,direccion);
-            pst.setString(4,correo);
-            pst.setString(5,ciudad);
-            pst.setString(6,ape);
+            pst.setString(3,ape);
+            pst.setString(4,direccion);
+            pst.setString(5,correo);
+            pst.setString(6,ciudad);
             
             int registro=pst.executeUpdate();
             if (registro>0)
@@ -628,7 +628,7 @@ public class Vista extends javax.swing.JFrame {
         String cod;
         String sql;
         cod=txtidentificacion.getText();
-        sql="delete from tblclientes where codigo="+cod;
+        sql="delete from Clientes where codigo="+cod;
         JOptionPane.showMessageDialog(null,sql);
         try{
            PreparedStatement pst = cn.prepareStatement(sql);
@@ -646,15 +646,15 @@ public class Vista extends javax.swing.JFrame {
         // TODO add your handling code here:
          Conexion cc= new Conexion();
         Connection cn=cc.estableceConexion();
-        String nombrefactura,facturaidentificacion,facturafecha;
+        String numerofactura,facturaidentificacion,facturafecha;
         String sql="";
-        nombrefactura=txtfacturanumerofactura.getText();
+        numerofactura=txtfacturanumerofactura.getText();
         facturaidentificacion=txtfacturaidentificacion.getText();
         facturafecha=txtfacturafecha.getText();
-        sql="insert into tblclientes (codigo,nombre,apellido) values (?,?,?)";
+        sql="insert into Clientes (numerofactura,facturaidentificacion,facturafecha) values (?,?,?)";
         try{
             PreparedStatement pst=cn.prepareStatement(sql);
-            pst.setString(1,nombrefactura);
+            pst.setString(1,numerofactura);
             pst.setString(2,facturaidentificacion);
             pst.setString(3,facturafecha);
             int registro=pst.executeUpdate();
@@ -677,7 +677,7 @@ public class Vista extends javax.swing.JFrame {
         nombrefactura=txtfacturanumerofactura.getText();
         facturaidentificacion=txtfacturaidentificacion.getText();
         facturafecha=txtfacturafecha.getText();
-        sql="update tblclientes set nombre=?, apellido=? where codigo="+nombrefactura;
+        sql="update Clientes set facturaidentificacion=?,facturafecha=? where codigo="+nombrefactura;
         try{
             PreparedStatement pst = cn.prepareStatement(sql);
             pst.setString(1,nombrefactura);
@@ -700,7 +700,7 @@ public class Vista extends javax.swing.JFrame {
         String nombrefactura;
         String sql;
         nombrefactura=txtfacturanumerofactura.getText();
-        sql="delete from tblclientes where codigo="+nombrefactura;
+        sql="delete from Clientes where codigo="+nombrefactura;
         JOptionPane.showMessageDialog(null,sql);
         try{
            PreparedStatement pst = cn.prepareStatement(sql);
@@ -726,7 +726,7 @@ public class Vista extends javax.swing.JFrame {
         Aunidaddemedida=txtAunidaddemedida.getText();
         Apreveedor=txtApreveedor.getText();
         Aciudad=txtAciudad.getText();
-        sql="insert into tblclientes (codigo,nombre,apellido) values (?,?,?)";
+        sql="insert into Clientes (Acodigo,Adescripcion,Apreciounitario,Aunidaddemedida,Apreveedor,Aciudad) values (?,?,?,?,?,?)";
         try{
             PreparedStatement pst=cn.prepareStatement(sql);
             pst.setString(1,Acodigo);
@@ -751,19 +751,21 @@ public class Vista extends javax.swing.JFrame {
         // TODO add your handling code here:
         Conexion cc= new Conexion();
         Connection cn=cc.estableceConexion();
-        String detalleNumeroFactura,detalleCodigo,detalleValorUnitario,detalleValorTotal;
+        String detalleNumeroFactura,detalleCodigo,detalleValorUnitario,detalleValorTotal,detalleCantidad;
         String sql="";
         detalleNumeroFactura=txtdetalleNumeroFactura.getText();
         detalleCodigo=txtdetalleCodigo.getText();
+        detalleCantidad=txtdetalleCantidad.getText();
         detalleValorUnitario=txtdetalleValorUnitario.getText();
         detalleValorTotal=txtdetalleValorTotal.getText();
-        sql="insert into tblclientes (codigo,nombre,apellido) values (?,?,?)";
+        sql="insert into Clientes (detalleNumeroFactura,detalleCodigo,detalleCantidad,detalleValorUnitario,detalleValorTotal) values (?,?,?,?,?)";
         try{
             PreparedStatement pst=cn.prepareStatement(sql);
             pst.setString(1,detalleNumeroFactura);
             pst.setString(2,detalleCodigo);
-            pst.setString(3,detalleValorUnitario);
-            pst.setString(4,detalleValorTotal);
+            pst.setString(3,detalleCantidad);
+            pst.setString(4,detalleValorUnitario);
+            pst.setString(5,detalleValorTotal);
             int registro=pst.executeUpdate();
             if (registro>0)
             {
@@ -779,19 +781,21 @@ public class Vista extends javax.swing.JFrame {
         // TODO add your handling code here:
         Conexion cc= new Conexion();
         Connection cn=cc.estableceConexion();
-        String detalleNumeroFactura,detalleCodigo,detalleValorUnitario,detalleValorTotal;
+        String detalleNumeroFactura,detalleCodigo,detalleValorUnitario,detalleValorTotal,detalleCantidad;
         String sql;
         detalleNumeroFactura=txtdetalleNumeroFactura.getText();
         detalleCodigo=txtdetalleCodigo.getText();
+        detalleCantidad=txtdetalleCantidad.getText();
         detalleValorUnitario=txtdetalleValorUnitario.getText();
         detalleValorTotal=txtdetalleValorTotal.getText();
-        sql="update tblclientes set nombre=?, apellido=? where codigo="+detalleCodigo;
+        sql="update Clientes set detalleCodigo=?, detalleCantidad=?, detalleValorUnitario=?, detalleValorTotal=? where codigo="+detalleCodigo;
         try{
             PreparedStatement pst = cn.prepareStatement(sql);
             pst.setString(1,detalleNumeroFactura);
             pst.setString(2,detalleCodigo);
-            pst.setString(3,detalleValorUnitario);
-            pst.setString(4,detalleValorTotal);
+            pst.setString(3,detalleCantidad);
+            pst.setString(4,detalleValorUnitario);
+            pst.setString(5,detalleValorTotal);
             int registro=pst.executeUpdate();
             if (registro>0){
                 JOptionPane.showMessageDialog(null, "El registro se actualizo correctamente");
@@ -809,7 +813,7 @@ public class Vista extends javax.swing.JFrame {
         String detalleCodigo;
         String sql;
         detalleCodigo=txtdetalleCodigo.getText();
-        sql="delete from tblclientes where codigo="+detalleCodigo;
+        sql="delete from Clientes where codigo="+detalleCodigo;
         JOptionPane.showMessageDialog(null,sql);
         try{
            PreparedStatement pst = cn.prepareStatement(sql);
@@ -835,7 +839,7 @@ public class Vista extends javax.swing.JFrame {
         Aunidaddemedida=txtAunidaddemedida.getText();
         Apreveedor=txtApreveedor.getText();
         Aciudad=txtAciudad.getText();
-        sql="update tblclientes set nombre=?, apellido=? where codigo="+Acodigo;
+        sql="update Clientes set Adescripcion=?, Apreciounitario=?, Aunidaddemedida=?, Apreveedor=?, Aciudad=? where codigo="+Acodigo;
         try{
             PreparedStatement pst = cn.prepareStatement(sql);
             pst.setString(1,Acodigo);
@@ -861,7 +865,7 @@ public class Vista extends javax.swing.JFrame {
         String Acodigo;
         String sql;
         Acodigo=txtAcodigo.getText();
-        sql="delete from tblclientes where codigo="+Acodigo;
+        sql="delete from Clientes where codigo="+Acodigo;
         JOptionPane.showMessageDialog(null,sql);
         try{
            PreparedStatement pst = cn.prepareStatement(sql);

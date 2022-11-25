@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
 
-package com.mycompany.TallerFinal;
+package com.mycompany.tallerfinal;
 
 import vista.Conexion;
 
@@ -18,4 +18,6 @@ public class TallerFinal {
      Conexion objetoconexion = new Conexion();
      objetoconexion.estableceConexion();
     }
+    
+    
 }
