@@ -3,13 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
 
-package com.mycompany.basedatosfinal;
+package com.mycompany.TallerFinal;
+
+import vista.Conexion;
 
 /**
  *
  * @author echamorro
  */
-public class BaseDatosfinal {
+public class TallerFinal {
 
     public static void main(String[] args) {
      Conexion objetoconexion = new Conexion();

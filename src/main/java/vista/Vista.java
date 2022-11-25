@@ -64,12 +64,12 @@ public class Vista extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtAcodigo = new javax.swing.JTextField();
+        txtAdescripcion = new javax.swing.JTextField();
+        txtApreciounitario = new javax.swing.JTextField();
+        txtAunidaddemedida = new javax.swing.JTextField();
+        txtApreveedor = new javax.swing.JTextField();
+        txtAciudad = new javax.swing.JTextField();
         botonarticulosInsertar = new javax.swing.JButton();
         botonarticulosmodificar = new javax.swing.JButton();
         botoneliminararticulos = new javax.swing.JButton();
@@ -83,7 +83,7 @@ public class Vista extends javax.swing.JFrame {
         txtdetalleCodigo = new javax.swing.JTextField();
         txtdetalleCantidad = new javax.swing.JTextField();
         txtdetalleValorUnitario = new javax.swing.JTextField();
-        txtDetalleValorTotal = new javax.swing.JTextField();
+        txtdetalleValorTotal = new javax.swing.JTextField();
         botondetalleinsertar = new javax.swing.JButton();
         botondetallemodificar = new javax.swing.JButton();
         botondetalleEliminar = new javax.swing.JButton();
@@ -225,8 +225,18 @@ public class Vista extends javax.swing.JFrame {
         });
 
         botonfacturamodificar.setText("Modificar");
+        botonfacturamodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonfacturamodificarActionPerformed(evt);
+            }
+        });
 
         botonfacturaeliminar.setText("Eliminar");
+        botonfacturaeliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonfacturaeliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -274,7 +284,7 @@ public class Vista extends javax.swing.JFrame {
                     .addComponent(botonfacturaInsertar)
                     .addComponent(botonfacturamodificar)
                     .addComponent(botonfacturaeliminar))
-                .addContainerGap(350, Short.MAX_VALUE))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
 
         TabbClientes.addTab("factura", jPanel3);
@@ -293,19 +303,24 @@ public class Vista extends javax.swing.JFrame {
 
         jLabel6.setText("Ciudad");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtAcodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtAcodigoActionPerformed(evt);
             }
         });
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        txtAciudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                txtAciudadActionPerformed(evt);
             }
         });
 
         botonarticulosInsertar.setText("Insertar");
+        botonarticulosInsertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonarticulosInsertarActionPerformed(evt);
+            }
+        });
 
         botonarticulosmodificar.setText("Modificar");
 
@@ -328,12 +343,12 @@ public class Vista extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addGap(198, 198, 198)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtAcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtApreciounitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAunidaddemedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtApreveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAciudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addComponent(botonarticulosInsertar)
@@ -344,7 +359,7 @@ public class Vista extends javax.swing.JFrame {
                 .addContainerGap(54, Short.MAX_VALUE))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField1, jTextField2, jTextField3, jTextField4, jTextField5, jTextField6});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtAciudad, txtAcodigo, txtAdescripcion, txtApreciounitario, txtApreveedor, txtAunidaddemedida});
 
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -352,27 +367,27 @@ public class Vista extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1))
+                    .addComponent(txtAcodigo))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2))
+                    .addComponent(txtAdescripcion))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3))
+                    .addComponent(txtApreciounitario))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4))
+                    .addComponent(txtAunidaddemedida))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5))
+                    .addComponent(txtApreveedor))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6))
+                    .addComponent(txtAciudad))
                 .addGap(53, 53, 53)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonarticulosInsertar)
@@ -405,45 +420,61 @@ public class Vista extends javax.swing.JFrame {
         jLabel11.setText("ValorTotal");
 
         botondetalleinsertar.setText("Insertar");
+        botondetalleinsertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botondetalleinsertarActionPerformed(evt);
+            }
+        });
 
         botondetallemodificar.setText("Modificar");
+        botondetallemodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botondetallemodificarActionPerformed(evt);
+            }
+        });
 
         botondetalleEliminar.setText("Eliminar");
+        botondetalleEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botondetalleEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(botondetalleinsertar)
+                .addGap(18, 18, 18)
+                .addComponent(botondetallemodificar)
+                .addGap(18, 18, 18)
+                .addComponent(botondetalleEliminar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(txtdetalleNumeroFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addGap(198, 198, 198)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtdetalleNumeroFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtDetalleValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtdetalleCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtdetalleCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtdetalleCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtdetalleValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(botondetalleinsertar)
-                        .addGap(18, 18, 18)
-                        .addComponent(botondetallemodificar)
-                        .addGap(18, 18, 18)
-                        .addComponent(botondetalleEliminar)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                            .addComponent(txtdetalleValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtdetalleValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
 
-        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtDetalleValorTotal, txtdetalleCantidad, txtdetalleCodigo, txtdetalleNumeroFactura, txtdetalleValorUnitario});
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtdetalleCantidad, txtdetalleCodigo, txtdetalleNumeroFactura, txtdetalleValorTotal, txtdetalleValorUnitario});
 
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -451,22 +482,22 @@ public class Vista extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtdetalleNumeroFactura))
+                    .addComponent(txtdetalleNumeroFactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txtdetalleCodigo))
+                    .addComponent(txtdetalleCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(txtdetalleCantidad))
+                    .addComponent(txtdetalleCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(txtdetalleValorUnitario))
+                    .addComponent(txtdetalleValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDetalleValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdetalleValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addGap(53, 53, 53)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -483,12 +514,15 @@ public class Vista extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TabbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(TabbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TabbClientes)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(TabbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
         pack();
@@ -531,13 +565,13 @@ public class Vista extends javax.swing.JFrame {
         }         
     }//GEN-LAST:event_botonModificarActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtAcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAcodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtAcodigoActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void txtAciudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAciudadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_txtAciudadActionPerformed
 
     private void jPanel4AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel4AncestorAdded
         // TODO add your handling code here:
@@ -600,7 +634,158 @@ public class Vista extends javax.swing.JFrame {
 
     private void botonfacturaInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonfacturaInsertarActionPerformed
         // TODO add your handling code here:
+         Conexion cc= new Conexion();
+        Connection cn=cc.estableceConexion();
+        String nombrefactura,facturaidentificacion,facturafecha;
+        String sql="";
+        nombrefactura=txtfacturanumerofactura.getText();
+        facturaidentificacion=txtfacturaidentificacion.getText();
+        facturafecha=txtfacturafecha.getText();
+        sql="insert into tblclientes (codigo,nombre,apellido) values (?,?,?)";
+        try{
+            PreparedStatement pst=cn.prepareStatement(sql);
+            pst.setString(1,nombrefactura);
+            pst.setString(2,facturaidentificacion);
+            pst.setString(3,facturafecha);
+            int registro=pst.executeUpdate();
+            if (registro>0)
+            {
+               JOptionPane.showMessageDialog(null,"Registro almacenado correctamente");
+              // limpiar();
+            }
+        }catch(Exception e){
+               JOptionPane.showMessageDialog(null,"Registro no almacenado");
+               }
     }//GEN-LAST:event_botonfacturaInsertarActionPerformed
+
+    private void botonfacturamodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonfacturamodificarActionPerformed
+        // TODO add your handling code here:
+        Conexion cc= new Conexion();
+        Connection cn=cc.estableceConexion();
+        String nombrefactura,facturaidentificacion,facturafecha;
+        String sql;
+        nombrefactura=txtfacturanumerofactura.getText();
+        facturaidentificacion=txtfacturaidentificacion.getText();
+        facturafecha=txtfacturafecha.getText();
+        sql="update tblclientes set nombre=?, apellido=? where codigo="+nombrefactura;
+        try{
+            PreparedStatement pst = cn.prepareStatement(sql);
+            pst.setString(1,nombrefactura);
+            pst.setString(2,facturaidentificacion);
+            pst.setString(3,facturafecha);
+            int registro=pst.executeUpdate();
+            if (registro>0){
+                JOptionPane.showMessageDialog(null, "El registro se actualizo correctamente");
+             }
+        }catch (Exception e)
+        {
+             JOptionPane.showMessageDialog(null, "El registro  no se actualizo");
+        }
+    }//GEN-LAST:event_botonfacturamodificarActionPerformed
+
+    private void botonfacturaeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonfacturaeliminarActionPerformed
+        // TODO add your handling code here:
+        Conexion cc= new Conexion();
+        Connection cn=cc.estableceConexion();
+        String nombrefactura;
+        String sql;
+        nombrefactura=txtfacturanumerofactura.getText();
+        sql="delete from tblclientes where codigo="+nombrefactura;
+        JOptionPane.showMessageDialog(null,sql);
+        try{
+           PreparedStatement pst = cn.prepareStatement(sql);
+           int registro=pst.executeUpdate();
+           if (registro>0){
+               JOptionPane.showMessageDialog(null,"El registro se elimino correctamente");
+               }
+            }catch (Exception e)
+                        {
+                        JOptionPane.showMessageDialog(null,"El registro no se elimino");
+                        }
+    }//GEN-LAST:event_botonfacturaeliminarActionPerformed
+
+    private void botonarticulosInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonarticulosInsertarActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_botonarticulosInsertarActionPerformed
+
+    private void botondetalleinsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botondetalleinsertarActionPerformed
+        // TODO add your handling code here:
+        Conexion cc= new Conexion();
+        Connection cn=cc.estableceConexion();
+        String detalleNumeroFactura,detalleCodigo,detalleValorUnitario,detalleValorTotal;
+        String sql="";
+        detalleNumeroFactura=txtdetalleNumeroFactura.getText();
+        detalleCodigo=txtdetalleCodigo.getText();
+        detalleValorUnitario=txtdetalleValorUnitario.getText();
+        detalleValorTotal=txtdetalleValorTotal.getText();
+        sql="insert into tblclientes (codigo,nombre,apellido) values (?,?,?)";
+        try{
+            PreparedStatement pst=cn.prepareStatement(sql);
+            pst.setString(1,detalleNumeroFactura);
+            pst.setString(2,detalleCodigo);
+            pst.setString(3,detalleValorUnitario);
+            pst.setString(4,detalleValorTotal);
+            int registro=pst.executeUpdate();
+            if (registro>0)
+            {
+               JOptionPane.showMessageDialog(null,"Registro almacenado correctamente");
+              // limpiar();
+            }
+        }catch(Exception e){
+               JOptionPane.showMessageDialog(null,"Registro no almacenado");
+               }
+    }//GEN-LAST:event_botondetalleinsertarActionPerformed
+
+    private void botondetallemodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botondetallemodificarActionPerformed
+        // TODO add your handling code here:
+        Conexion cc= new Conexion();
+        Connection cn=cc.estableceConexion();
+        String detalleNumeroFactura,detalleCodigo,detalleValorUnitario,detalleValorTotal;
+        String sql;
+        detalleNumeroFactura=txtdetalleNumeroFactura.getText();
+        detalleCodigo=txtdetalleCodigo.getText();
+        detalleValorUnitario=txtdetalleValorUnitario.getText();
+        detalleValorTotal=txtdetalleValorTotal.getText();
+        sql="update tblclientes set nombre=?, apellido=? where codigo="+detalleCodigo;
+        try{
+            PreparedStatement pst = cn.prepareStatement(sql);
+            pst.setString(1,detalleNumeroFactura);
+            pst.setString(2,detalleCodigo);
+            pst.setString(3,detalleValorUnitario);
+            pst.setString(4,detalleValorTotal);
+            int registro=pst.executeUpdate();
+            if (registro>0){
+                JOptionPane.showMessageDialog(null, "El registro se actualizo correctamente");
+             }
+        }catch (Exception e)
+        {
+             JOptionPane.showMessageDialog(null, "El registro  no se actualizo");
+        } 
+    }//GEN-LAST:event_botondetallemodificarActionPerformed
+
+    private void botondetalleEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botondetalleEliminarActionPerformed
+        // TODO add your handling code here:
+        Conexion cc= new Conexion();
+        Connection cn=cc.estableceConexion();
+        String detalleCodigo;
+        String sql;
+        detalleCodigo=txtdetalleCodigo.getText();
+        sql="delete from tblclientes where codigo="+detalleCodigo;
+        JOptionPane.showMessageDialog(null,sql);
+        try{
+           PreparedStatement pst = cn.prepareStatement(sql);
+           int registro=pst.executeUpdate();
+           if (registro>0){
+               JOptionPane.showMessageDialog(null,"El registro se elimino correctamente");
+               }
+            }catch (Exception e)
+                        {
+                        JOptionPane.showMessageDialog(null,"El registro no se elimino");
+                        }
+    }//GEN-LAST:event_botondetalleEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -666,12 +851,6 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblCiudad;
     private javax.swing.JLabel lblCorrero;
@@ -681,14 +860,20 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel lblNumerofactura;
     private javax.swing.JLabel lblfacturaIdentificacion;
     private javax.swing.JLabel lblfacturafecha;
+    private javax.swing.JTextField txtAciudad;
+    private javax.swing.JTextField txtAcodigo;
+    private javax.swing.JTextField txtAdescripcion;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtApreciounitario;
+    private javax.swing.JTextField txtApreveedor;
+    private javax.swing.JTextField txtAunidaddemedida;
     private javax.swing.JTextField txtCiudad;
     private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtDetalleValorTotal;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtdetalleCantidad;
     private javax.swing.JTextField txtdetalleCodigo;
     private javax.swing.JTextField txtdetalleNumeroFactura;
+    private javax.swing.JTextField txtdetalleValorTotal;
     private javax.swing.JTextField txtdetalleValorUnitario;
     private javax.swing.JTextField txtfacturafecha;
     private javax.swing.JTextField txtfacturaidentificacion;
