@@ -2,17 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.basedatosfinal;
+package com.mycompany.TallerFinal;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author echamorro
- */
-public class Conexion {
+
+public class TallerFinal {
     Connection conectar= null;
     String usuario="root";
     String contrasena="123456";

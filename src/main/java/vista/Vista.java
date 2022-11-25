@@ -4,6 +4,10 @@
  */
 package vista;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author julia
@@ -116,8 +120,18 @@ public class Vista extends javax.swing.JFrame {
         });
 
         botonEliminar.setText("Eliminar");
+        botonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEliminarActionPerformed(evt);
+            }
+        });
 
         botonInsetar.setText("insertar");
+        botonInsetar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonInsetarActionPerformed(evt);
+            }
+        });
 
         botonModificar.setText("Modificar");
         botonModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -204,6 +218,11 @@ public class Vista extends javax.swing.JFrame {
         lblfacturafecha.setText("Fecha");
 
         botonfacturaInsertar.setText("Insertar");
+        botonfacturaInsertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonfacturaInsertarActionPerformed(evt);
+            }
+        });
 
         botonfacturamodificar.setText("Modificar");
 
@@ -484,7 +503,32 @@ public class Vista extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoActionPerformed
 
     private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
-        
+    Conexion cc= new Conexion();
+        Connection cn=cc.estableceConexion();
+        String cod,nom,ape,direc,Correo,ciudad;
+        String sql;
+        cod=txtidentificacion.getText();
+        nom=txtnombre.getText();
+        ape=txtApellido.getText();
+        direc=txtDireccion.getText();
+        Correo=txtCorreo.getText();
+        ciudad=txtCiudad.getText();
+        sql="update tblclientes set nombre=?, apellido=? where codigo="+cod;
+        try{
+            PreparedStatement pst = cn.prepareStatement(sql);
+            pst.setString(1,nom);
+            pst.setString(2,ape);
+            pst.setString(3,direc);
+            pst.setString(4,Correo);
+            pst.setString(5,ciudad);
+            int registro=pst.executeUpdate();
+            if (registro>0){
+                JOptionPane.showMessageDialog(null, "El registro se actualizo correctamente");
+             }
+        }catch (Exception e)
+        {
+             JOptionPane.showMessageDialog(null, "El registro  no se actualizo");
+        }         
     }//GEN-LAST:event_botonModificarActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -498,6 +542,65 @@ public class Vista extends javax.swing.JFrame {
     private void jPanel4AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel4AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel4AncestorAdded
+
+    private void botonInsetarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInsetarActionPerformed
+        // TODO add your handling code here:
+        Conexion cc= new Conexion();
+        Connection cn=cc.estableceConexion();
+        String cod,nom,ape,direccion,correo,ciudad;
+        String sql="";
+        cod=txtidentificacion.getText();
+        nom=txtnombre.getText();
+        ape=txtApellido.getText();
+        direccion=txtDireccion.getText();
+        correo=txtCorreo.getText();
+        ciudad=txtCiudad.getText();
+        
+        sql="insert into tblclientes (codigo,nombre,apellido) values (?,?,?)";
+        try{
+            PreparedStatement pst=cn.prepareStatement(sql);
+            pst.setString(1,cod);
+            pst.setString(2,nom);
+            pst.setString(3,direccion);
+            pst.setString(4,correo);
+            pst.setString(5,ciudad);
+            pst.setString(6,ape);
+            
+            int registro=pst.executeUpdate();
+            if (registro>0)
+            {
+               JOptionPane.showMessageDialog(null,"Registro almacenado correctamente");
+              // limpiar();
+            }
+        }catch(Exception e){
+               JOptionPane.showMessageDialog(null,"Registro no almacenado");
+               }
+    }//GEN-LAST:event_botonInsetarActionPerformed
+
+    private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
+        // TODO add your handling code here:
+        Conexion cc= new Conexion();
+        Connection cn=cc.estableceConexion();
+        String cod;
+        String sql;
+        cod=txtidentificacion.getText();
+        sql="delete from tblclientes where codigo="+cod;
+        JOptionPane.showMessageDialog(null,sql);
+        try{
+           PreparedStatement pst = cn.prepareStatement(sql);
+           int registro=pst.executeUpdate();
+           if (registro>0){
+               JOptionPane.showMessageDialog(null,"El registro se elimino correctamente");
+               }
+            }catch (Exception e)
+                        {
+                        JOptionPane.showMessageDialog(null,"El registro no se elimino");
+                        }
+    }//GEN-LAST:event_botonEliminarActionPerformed
+
+    private void botonfacturaInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonfacturaInsertarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonfacturaInsertarActionPerformed
 
     /**
      * @param args the command line arguments

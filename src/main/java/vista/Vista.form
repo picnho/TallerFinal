@@ -199,11 +199,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Eliminar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEliminarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="botonInsetar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="insertar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonInsetarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="botonModificar">
               <Properties>
@@ -316,6 +322,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Insertar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonfacturaInsertarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="botonfacturamodificar">
               <Properties>
